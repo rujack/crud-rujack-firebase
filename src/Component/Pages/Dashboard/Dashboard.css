@@ -1,0 +1,26 @@
+/* .from-dashboard{
+    margin: 0;
+    position: absolute;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%,-50%);
+    top:20%;
+    left: 50%;
+    width: 60%; 
+}
+
+.tampil-dashboard{
+  margin: 0;
+  position: absolute;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+} */
+
+.kartu {
+transition: all ease 0.35s;
+}
+.kartu:hover{
+  cursor: pointer;
+  transform: translate(0px,-5px);
+}
