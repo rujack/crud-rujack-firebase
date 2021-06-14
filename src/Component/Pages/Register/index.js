@@ -22,17 +22,17 @@ class Register extends Component {
 
   handleRegister = async () => {
     const { email, password } = this.state;
-    console.log("email : ", email);
-    console.log("password : ", password);
+    // console.log("email : ", email);
+    // console.log("password : ", password);
     const res = await this.props.registerAPI({ email, password }).catch(err => err)
     if (res) {
-      console.log("Register Berhasil");
+      // console.log("Register Berhasil");
       this.setState({
         email: "",
         password: "",
       });
     } else {
-      console.log("Register Gagal");
+      alert("Register Gagal");
     }
   };
   

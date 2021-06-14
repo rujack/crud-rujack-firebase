@@ -58,7 +58,6 @@ class Dashboard extends Component {
           deskripsi: ''
         })
       }
-      console.log('Hasil', data)
     }
   }
 
@@ -90,7 +89,6 @@ class Dashboard extends Component {
 
   handleDelete = (e, catatan) => {
     e.stopPropagation()
-    console.log(catatan)
     if(catatan !== null){
       const { deleteCatatan } = this.props
       const userData = JSON.parse(localStorage.getItem('userData'))
@@ -105,7 +103,6 @@ class Dashboard extends Component {
   render() {
     const { deskripsi, judul, buttonText, buttonColor } = this.state
     const { catatans } = this.props
-    console.log('Catatan : ', catatans)
     return (
       <div className="container" style={{ paddingTop: '20px', paddingBottom: '30px' }}>
         <h1 className="text-center" >Hello world<span onClick={this.handleLogOut}>!</span></h1>
@@ -165,8 +162,8 @@ class Dashboard extends Component {
                           <Card.Text className="text-justify">
                             {catatan.data.deskripsi}
                           </Card.Text>
-                          <footer className="blockquote-footer text-white">
-                            Tanggal : <cite title="Source Title">{catatan.data.tanggal}</cite>
+                          <footer className="blockquote-footer text-dark">
+                          <cite title="Source Title">{Date(catatan.data.tanggal)}</cite>
                           </footer>
                         </Card.Body>
                       </Card>

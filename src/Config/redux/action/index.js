@@ -11,15 +11,15 @@ export const registerUserAPI = (data) => (dispatch) => {
     dispatch({ type: 'CHANGE_ISLOADING', value: true })
     firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
       .then((userCredential) => {
-        var user = userCredential.user;
-        console.log(user)
+        // var user = userCredential.user;
+        // console.log(user)
         dispatch({ type: 'CHANGE_ISLOADING', value: false })
         resolve(true)
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode, errorMessage)
+        // var errorCode = error.code;
+        // var errorMessage = error.message;
+        // console.log(errorCode, errorMessage)
         dispatch({ type: 'CHANGE_ISLOADING', value: false })
         reject(false)
       })
@@ -31,7 +31,7 @@ export const loginUserAPI = (data) => (dispatch) => {
     dispatch({ type: 'CHANGE_ISLOADING', value: true })
     firebase.auth().signInWithEmailAndPassword(data.email, data.password)
       .then(res => {
-        console.log("sukses: ", res)
+        // console.log("sukses: ", res)
         const dataUser = {
           email: res.user.email,
           uid: res.user.uid,
@@ -44,9 +44,9 @@ export const loginUserAPI = (data) => (dispatch) => {
         resolve(dataUser)
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode, errorMessage)
+        // var errorCode = error.code;
+        // var errorMessage = error.message;
+        // console.log(errorCode, errorMessage)
         dispatch({ type: 'CHANGE_ISLOADING', value: false })
         dispatch({ type: 'CHANGE_ISLOGIN', value: false })
         reject(false)
@@ -66,7 +66,7 @@ export const getDataFromFirebase=(userId)=>(dispatch)=>{
   const urlCatatan = firebase.database().ref('catatan/' + userId)
   return new Promise((resolve,reject)=>{
     urlCatatan.on('value', function(snapshot) {
-      console.log('Get data : ', snapshot.val())
+      // console.log('Get data : ', snapshot.val())
       const data = []
       if(snapshot.val() !== null){
         Object.keys(snapshot.val()).map(key => {

@@ -25,7 +25,6 @@ class Login extends Component {
     const { history } = this.props;
     const res = await this.props.loginAPI({ email, password }).catch(err => err)
     if (res) {
-      console.log('Login SUKSES',res)
       localStorage.setItem('userData',JSON.stringify(res))
       
       this.setState({
@@ -34,7 +33,7 @@ class Login extends Component {
       })
       history.push('/')
     } else {
-      console.log('Login GAGAL')
+      alert('Login GAGAL')
     }
   }
 
